@@ -1,0 +1,1 @@
+基于smartread开发的一款文本语音软件，源码开放，已经破解SmartRead，无需安装smartread sdk,可直接在本源码的架构和接口上开发出更多功能，也可以自己作为一款方便的语音软件自己使用,使用时先安装windows的汉语语音库simpchinesespeechcn.exe。另外，jar文件不识别汉字路径，最好请把文件放在盘符下的第一层路径。

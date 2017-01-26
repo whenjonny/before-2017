@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/recommend.css">
+	<title>求PS大神</title>
+</head>
+<script type="text/javascript" src="http://libs.useso.com/js/zepto/1.1.3/zepto.min.js"></script>
+
+<style>
+	body {
+		background: #F0F0EE;
+	}
+	.remindShade{
+		display: none;
+	}
+</style>
+<body>
+	<section class="RecommendHead">
+		<div class="IntroductionApp">
+			<div class="appLogo">
+				<img src="../img/logo.png" height="162" width="162" alt="">
+			</div>
+			<div class="AppDetails">
+				<div class="LogoName">求PS大神</div>
+				<div class="StarGrade">
+					<div class="Star">
+							<img src="../img/start.png" height="22" width="128" alt="">
+					</div>
+					<div class="Grade">
+						（179883份评分）
+					</div>
+				</div>
+				<div class="brief">
+					最好玩的图片娱乐社区
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="RecommendMain">
+		<div class="IosDownload">
+		     <a href="">
+			    <img src="../img/iphone.png" height="68" width="212" alt="">
+			 </a>
+		</div>
+		<div class="AndroidDownload">
+			<a href="">
+				<img src="../img/Android.png" height="68" width="212" alt="">
+			</a>
+		</div>
+	</section>
+	<section class="RecommendApp">
+		<img src="../img/app.png" alt="">
+	</section>
+
+	<section class="remindShade">
+		<div  class="remindBlack">
+		</div>
+		<div class="arrow">
+			<img src="../img/arrows.png" alt="">
+		</div>
+		<div class="remind1">
+			<img src="../img/remind1.png" alt="">
+		</div>
+		<div class="remind2">
+			<img src="../img/remind2.png"  alt="">
+		</div>
+	</section>
+	<script>
+	$(document).ready(function(){
+
+		$('.AndroidDownload a ').on('tap click', function( e ){
+			e.preventDefault();
+			$('.remindShade').show();
+		})
+		$('.remindShade').on('tap click', function(){
+			$(this).hide();
+		});
+	});
+</script>
+</body>
+</html>

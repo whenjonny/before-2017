@@ -1,0 +1,54 @@
+<div id="assign_role_modal" class="modal " tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">角色设置</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-row-seperated">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">用户名</label>
+                            <div class="col-md-9">
+                                <input type="hidden" name="user_id" />
+                                <input type="text" class="form-control" readonly name="user_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 ">
+                                <ul class="role_list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn blue save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+    $('#assign_role_modal').on('click', '.save', function(){
+        $.post("/role/assign_role", $("#assign_role_modal form").serialize(), function(result){
+            if(result.data){
+                toastr['success']("操作成功");
+
+                $("#assign_role_modal form")[0].reset();
+                $("#assign_role_modal").modal("hide");
+                table.submitFilter();
+            }
+        });
+        
+    })
+    .on('click','.cancel', function(){
+        $("#assign_role_modal form")[0].reset();
+    });
+
+
+});
+</script>

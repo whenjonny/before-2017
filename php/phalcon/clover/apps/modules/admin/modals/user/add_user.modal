@@ -1,0 +1,122 @@
+<div id="add_user" class="modal " tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">创建账号</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-horizontal form-row-seperated">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2" >账号</label>
+                            <div class="col-md-9">
+                                <input name="role_id" type="hidden">
+                                <input name="username" type="text" class="form-control" value="majia">
+                                <p class="help-inline">创建账号规则,majia+账号名</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">密码</label>
+                            <div class="col-md-9">
+                                <input name="password" type="text" class="form-control" value="12345678" placeholder="密码请填写12345678">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">昵称</label>
+                            <div class="col-md-9">
+                                <input name="nickname" type="text" class="form-control" placeholder="昵称随意">
+                            </div>
+                        </div>
+                        <!--   <div class="form-group">
+                            <label class="control-label col-md-2">电话</label>
+                            <div class="col-md-9">
+                                <input name="phone" type="text" class="form-control">
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="control-label col-md-2" style="padding-top: 1px;">性别</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="inline">
+                                        <input type="radio" name="sex" value="0">
+                                        女
+                                    </label>
+                                    <label class="inline">
+                                        <input type="radio" name="sex" value="1" checked="">
+                                        男
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="form-group">
+                            <label class="control-label col-md-2">地区</label>
+                            <div class="col-md-9">
+                                <select class="form-control input-small input-inline">
+                                    <option>123</option>
+                                    <option>123</option>
+                                </select>
+                                <select class="form-control input-small input-inline">
+                                    <option>123</option>
+                                    <option>123</option>
+                                </select>
+                            </div>
+                        </div>
+                        -->
+                        <div class="form-group">
+                            <label class="control-label col-md-2">头像</label>
+                            <div class="col-md-9">
+                            <td class="">
+                                <img class="user-portrait" src=" "></td>
+                                <input id="upload_avatar" type="file" class="form-control">
+                                <input type="hidden" name="avatar">
+                                <span id="fileQueue" class="help-inline hidden"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn blue save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/uploadify/jquery.uploadify.min.js"></script>
+<script>
+
+$(function(){
+    $("#add_user input[name='role_id']").val($("ul.nav li.active").attr("data"));
+    $("#add_user .save").click(function(){
+        var obj = {};
+
+        var inputs = $("#add_user input");
+
+        for(var i = 0; i < inputs.length; i++){
+            var value = $(inputs[i]).val();
+            if(value == undefined || value == "" ){
+                toastr['error']("请输入" + $(inputs[i]).attr("name"));
+                return false;
+            }
+        }
+
+        $.post("/waistcoat/create_user", $("#add_user form").serialize(), function(data){
+            if( data.ret ){
+                $("#add_user").modal("hide");
+                table && table.submitFilter();
+            }
+        });
+    });
+
+    Common.upload("#upload_avatar", function(data){
+        $("#add_user input[name='avatar']").val(data.data.url);
+        $("#add_user input[name='label']").val(data.data.name);
+        $("#add_user .user-portrait").attr("src", data.data.url);
+    }, null, {
+        url: '/image/upload'
+    });
+});
+</script>

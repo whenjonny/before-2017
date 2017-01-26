@@ -1,0 +1,12 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		{{ getTitle() }}
+		{{ assets.outputCss() }}
+	</head>
+    <body>
+		{{ content() }}
+		{{ assets.outputJs() }}
+	</body>
+</html>

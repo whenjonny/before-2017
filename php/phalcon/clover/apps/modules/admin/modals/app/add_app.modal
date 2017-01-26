@@ -1,0 +1,88 @@
+<div id="add_app" class="modal " tabindex="-1" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">添加App</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-row-seperated">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Logo</label>
+                            <div class="col-md-9">
+                                <img id="logo_preview" class="img-display" />
+                                <input type="file" id="logo_upload" class="btn blue" value="上传图片" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">App名称</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="app_name" placeholder="应用名称"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">跳转链接</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="jump_url" value="http://" placeholder="点击后要跳转的链接" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn blue save">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+    $("#add_app .cancel").click(function(){
+        $("#add_app form")[0].reset();
+    });
+
+    $("#add_app .save").click(function(){
+        var form = $("#add_app form");
+        var appData = {};
+        appData.app_name = form.find('input[name="app_name"]').val();
+        appData.logo_id = $('#logo_preview').attr('data-id');
+        appData.jump_url = form.find('input[name="jump_url"]').val();
+
+        $.post("/app/save_app", appData, function(result){
+            if( result.ret == 1){
+                toastr['success']('添加成功！');
+                $("#add_app form")[0].reset();
+                $("#add_app").modal("hide");
+                table.submitFilter();
+            }
+        });
+        
+    });
+
+
+    Common.upload('#logo_upload',loadLogo, null, {url:'/image/upload'});
+
+});
+
+
+function loadLogo(data){
+    Common.preview('logo_preview', data);
+    $('#logo_preview').attr('data-id', data.data.id);
+}
+
+</script>
+
+
+<script type="text/javascript" src="/uploadify/jquery.uploadify.min.js"></script>
+<style>
+#logo_preview{
+    height: 50px;
+    width:50px;
+    border-radius: 12px !important;
+    border: 1px solid lightgray;
+}
+
+</style>

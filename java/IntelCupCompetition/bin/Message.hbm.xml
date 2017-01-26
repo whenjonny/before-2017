@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="org.intel.sqlite.model.Message" table="message">
+	<id name="id" column="id" type="int">
+		<generator class="native"></generator> 
+	</id>
+	<property name="_id" column="_id" type="string"></property>
+	<property name="type" column="type" type="int"></property>
+	<property name="encoding" column="encoding" type="int"></property>
+	<property name="date" column="date" type="string"></property>
+	<property name="orginator" column="orginator" type="string"></property>
+	<property name="text" column="text" type="string"></property>
+	<property name="refNo" column="refNo" type="int"></property>
+	<property name="memIndex" column="memIndex" type="int"></property>
+	<property name="memLocation" column="memLocation" type="string"></property>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,120 @@
+/* 重置样式 [[*/
+body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,form,fieldset,legend,input,select,textarea,button,th,td,menu,article,pre,figure,figcaption {
+    margin: 0;
+    padding: 0;
+    color: rgb(81, 81, 81);
+    font-family: "Microsoft YaHei";
+}
+pre {
+    white-space: normal;
+}
+article,aside,dialog,figure,footer,header,hgroup,nav,section,select {
+    display: block;
+}
+h1,h2,h3,h4,h5,h6,input,textarea,select,button,label {
+    font-size: 100%;
+    font-weight: 100;
+    vertical-align: middle;
+}
+em {
+  font-style: normal;
+  font-weight: normal;
+}
+ul,dl,ol {
+    list-style: none;
+}
+img,fieldset,input[type="submit"] {
+    border: none;
+}
+input {
+    outline: none;
+    background: transparent;
+    vertical-align: middle;
+}	
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}		
+span{
+    behavior: url(ie-css3.htc);
+}
+button {
+    cursor: pointer;
+    border: none;
+}
+textarea {
+    word-wrap: break-word;
+    resize: none;
+}
+
+/* 去除IE下拉菜单箭头 */
+select::-ms-expand {
+    display: none;
+}
+
+/* 去除IE下radio、checkbox默认样式 */
+::-ms-check {
+    display: none;
+}
+
+/* 去除输入框、文本域默认边框和IOS4下的内阴影 */
+input, textarea, select {
+    border: none;
+    outline: none;
+}
+
+/* 设置webkit内核下输入框属性placeholder中值的文件颜色 */
+::-webkit-input-placeholder{
+    color: #B2B2B2;
+}
+
+/* 禁止长按链接、按钮、输入框出现系统默认弹框菜单 */
+a,
+button,
+input {
+    -webkit-touch-callout: none;
+    outline: none;
+}
+a,
+a:visited {
+    text-decoration: none;
+    -webkit-touch-callout: none;
+}
+/* 重置样式 ]]*/
+
+/* 设置webkit内核下文字大小不小于12px */
+html,
+body {
+    -webkit-text-size-adjust: none;
+    height: 100%;
+}
+.flex {
+    display:-webkit-box; /* android 2.1-3.0, ios 3.2-4.3 */
+    display:-webkit-flex; /* Chrome 21+ */
+    display:-ms-flexbox; /* WP IE 10 */
+    display:flex; /* android 4.4 */
+}
+.flex-1 {
+    -webkit-box-flex:1; /* android 2.1-3.0, ios 3.2-4.3 */
+    -webkit-flex:1; /* Chrome 21+ */
+    -ms-flex:1; /* WP IE 10 */
+    flex:1; /* android 4.4 */
+}
+.flex-2 {
+    -webkit-box-flex:2; /* android 2.1-3.0, ios 3.2-4.3 */
+    -webkit-flex:2; /* Chrome 21+ */
+    -ms-flex:2; /* WP IE 10 */
+    flex:2; /* android 4.4 */
+}
+.flex-3 {
+
+    -webkit-box-flex:3; /* android 3.1-3.0, ios 3.3-4.3 */
+    -webkit-flex:3; /* Chrome 31+ */
+    -ms-flex:3; /* WP IE 10 */
+    flex:3; /* android 4.4 */
+}
+.register-hand {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}

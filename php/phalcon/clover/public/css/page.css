@@ -1,0 +1,33 @@
+.custom-page {
+	/*float:right;*/
+	margin:20px 0;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+	/*border:1px solid #ddd;*/
+	/*background-color:#fff;*/
+}
+.custom-page span, .custom-page a {
+	float:left;
+	padding:6px 12px;
+	height:18px;
+	color:#428bca;
+	/*border-left:1px solid #ddd;*/
+	text-decoration:none;
+}
+.custom-page a:first-child, .custom-page span:first-child {
+	border:0 none;
+	-moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -khtml-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.custom-page span.current {
+	color: #fff;
+    background-color: #428bca;
+}
+.custom-page a:hover {
+	color: #2a6496;
+    background-color: #eee;
+}

@@ -1,0 +1,97 @@
+<div id="modal_evaluation" class="modal" tabindex="-1" aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content">
+         <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+             <h4 class="modal-title">拒绝原因</h4>
+         </div>
+         <div class="modal-body">
+             <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+                 <div class="row">
+                    <div class="form-group">
+                        <h4>自定义原因</h4>
+                        <div class="col-md-9">
+                            <input type="text" class="modal-add-data form-control inline" style="width: 50%"> <a href='#' class='btn modal-add-label'>添加</a>
+                        </div>
+                        <br><br>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9">
+                        <select multiple="multiple" class="multi-select" id="evaluation_select" name="evaluation_select[]">
+                        </select>
+                        </div>
+                        <div class="col-md-1">
+                            <input type="button" class="btn red delete" value="删除" style="float:right;"/>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+         <div class="modal-footer">
+             <button type="button" data-dismiss="modal" class="btn default">取消</button>
+             <button type="button" class="save btn green">确定</button>
+         </div>
+     </div>
+ </div>
+
+<link rel="stylesheet" type="text/css" href="/theme/assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+<script type="text/javascript" src="/theme/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script>
+$(function(){
+
+    $.get("get_evaluations", function(data){
+        var evaluations = data.data;
+        for(var i in evaluations){
+            var id = evaluations[i].id;
+            var content = evaluations[i].content;
+            $("#evaluation_select").append("<option>"+content+"</option>");
+        }
+        $('#evaluation_select').multiSelect();
+    });
+
+    $("#modal_evaluation .modal-add-label").click(function(){
+        var data = $("#modal_evaluation .modal-add-data").val();
+        if(data == undefined || data == ""){
+            return false;
+        }
+        $.post("set_evaluation", { data: data}, function(data){
+            if(data.ret == 1) {
+                var id = data.data.id;
+                var content = data.data.content;
+
+                $("#evaluation_select").append("<option selected>"+content+"</option>");
+                $('#evaluation_select').multiSelect('refresh');
+            }
+        });
+    });
+
+    $("#modal_evaluation .save").live("click", function(){
+        var obj = {};
+        obj.reply_id = $("#modal_evaluation").attr('data');
+        obj.status   = 2;
+        obj.data     = $("#evaluation_select").val().join(",");
+
+        $.post("set_status", obj, function(data){
+            toastr['success']("操作成功");
+            table.submitFilter();
+
+            $("#modal_evaluation .close").click();
+        });
+    });
+
+    $("#modal_evaluation .delete").live("click", function(){
+        var obj = {};
+        obj.status   = 2;
+        obj.data     = $("#evaluation_select").val().join(",");
+
+        $.post("del_evaluation", obj, function(data){
+            //toastr['success']("操作成功");
+            table.submitFilter();
+            $("#modal_evaluation .close").click();
+            location.refresh();
+        });
+    });
+
+});
+</script>

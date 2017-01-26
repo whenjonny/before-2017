@@ -1,0 +1,272 @@
+/*首页头部*/
+.weixin {
+	background: #F3F3F3;
+}
+.wn-name {
+	display: inline-block;
+    margin-top: 10px;
+	vertical-align: top;
+}
+.wn-head,.wn-invite {
+    padding: 10px 0;
+}
+.wn-time {
+	display: inline-block;
+    float: right;
+	margin-top: 10px;
+	font-size: 15px;
+}
+.bg-padding {
+  padding: 0 10px;
+}
+/*图片内容*/
+.weixin-main,.wn-invite-main {
+	position: relative;
+}
+.weixin-main img , .wn-invite-main img {
+	width: 100%;
+}
+
+/*标签样式*/
+.wnTab {
+ 	  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: 27px;
+  color: black;
+ }
+ .wn-icon-tab {
+ 	  width: 200px;
+  font-size: 77px;
+  opacity: 0.6;
+ }
+ .wn-font-tab {
+ 	  color: white;
+  position: absolute;
+  top: 3px;
+  left: 22px;
+  transform: scale(0.8);
+ }
+.dotTab {
+  background: #3EC0FC;
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 22px;
+  left: 2px;
+  border-radius: 50%;
+  z-index: 999;
+}
+.dotBack {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -2px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.7;
+  z-index: 1;
+}
+/*底部icon样式*/
+.columnIcon {
+	height: 60px;
+}
+.ellipsis {
+  font-size: 30px;
+  display: inline-block;
+  margin-top: 12px;
+}
+.threeIcon {
+  float: right;
+  display: inline-block;
+  width: 240px;
+  margin-top: 10px;
+  text-align: right;
+}
+.assist ,.bubble {
+	margin-right: 15px;
+}
+.assist ,.bubble ,.comment {
+  display: inline-block;
+  font-size: 24px;
+  text-align: left;
+}
+.columnIcon .icon-bubble {
+	display: inline-block;
+	width: 20px;
+}
+.columnIcon .icon-comment {
+	display: inline-block;
+	width: 17px;
+  font-size: 30px;
+}
+.count {
+  font-size: 12px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 7px;
+}
+.conment-margin {
+	  margin-top: 10px;
+}
+/*P图数量*/
+.portrait-count {
+	height: 45px;
+}
+.pCount {
+  margin-top: 13px;
+  display: inline-block;
+  font-size: 11px;
+    vertical-align: top;
+  margin-top: 7px;
+  float: left;
+}
+.P-portrait {
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  height: 32px;
+  overflow: hidden;
+ text-align: right;
+}
+.pHead {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+/*view invite.html*/
+
+/*app介绍*/
+.appHead {
+
+}
+.logo-picture {
+  display: inline-block;
+   padding: 20px 10px;
+}
+.logo-picture img {
+  width: 50px;
+  height: 50px;
+}
+.nameContent {
+  display: inline-block;
+  width: 150px;
+  vertical-align: top;
+  font-size: 13px;
+  margin-top: 24px;
+}
+.appName {
+    display: block;
+}
+.appContent {
+    margin-top: 5px;
+  display: inline-block;
+}
+.appOpen {
+padding: 7px 18px;
+  color: white;
+  font-size: 11px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.invite-bg {
+  background: url('../img/bgInvite.png');
+    background-size: 100%;
+}
+.inviteRemind {
+  width: 230px;
+  display: inline-block;
+  margin-top: -30px;
+  margin-left: -7px;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 20px;
+}
+.inviteRemind img {
+  width: 85%;
+  height: 85px;
+}
+.inviteUpload {
+  font-size: 13px;
+  display: inline-block;
+  padding: 7px 14px;
+  float: right;
+  margin-top: 20px;
+}
+.personList {
+    border:1px solid #F1F1F1;
+}
+.person-message {
+
+}
+.invite-portrait {
+    padding: 10px;
+  display: inline-block;
+}
+.godReply {
+  display: inline-block;
+}
+.nameTime {
+  color: #8F8F8F;
+}
+.nameTime span {
+  color: #050505;
+  font-size: 15px;
+    font: initial;
+}
+.nameTime i {
+    font: menu;
+}
+.god-content {
+  color: #929292;
+  font: initial;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.lookOver {
+    font-size: 13px;
+  padding: 8px 15px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.magin-left {
+  margin-left: 50px;
+}
+.codeContent {
+  padding: 25px 10px;
+}
+.codeInvite {
+  display: inline-block;
+  width: 120px;
+}
+.codeInvite img {
+  width: 100%;
+}
+.code-content {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 35px;
+  position: relative;
+  margin-left: 25px;
+  font-size: 14px;
+  color: #929292;
+}
+.semicolon-left {
+position: absolute;
+  top: -14px;
+  left: -20px;
+  width: 17px;
+}
+.semicolon-right {
+  position: absolute;
+  top: 17px;
+  right: -23px;
+  width: 17px;
+}
+

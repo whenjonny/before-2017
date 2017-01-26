@@ -1,0 +1,44 @@
+<div class="modal hidden" id="edit_profile_modal" style="height:450px" >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>编辑个人信息</h3>
+    </div>
+        <form action="information" enctype="multipart/form-data" method="POST" id="form_info">
+            <div class="login-control">
+                <label class="control-label" for="avatar">头像</label>
+                <div class="controls">
+                    <img src="" id="modal_avatar" height="200">
+                    <input id="modal_avatar_uploadify" type="file" class="select-head">
+                    <input name="upload_id" type="hidden">
+                    <button style="display: none" type="button" id="modal_crop">确认截图</button>
+                </div>
+            </div>
+            <div class="login-control">
+                <label class="control-label" for="nickname">昵称</label>
+                <div class="controls">
+                    <input type="text" name="nickname" placeholder="昵称">
+                </div>
+            </div>
+            <div class="login-control">
+                <label class="control-label col-md-2 login-control-padding">性别</label>
+                <div class="col-md-9 controls">
+                    <div class="radio-list ">
+                         <label class="inline margin-sex">
+                         <input type="radio" name="sex" value="1" class="select-sex"> 
+                            男
+                        </label>
+                        <label class="inline margin-sex">
+                        <input type="radio" name="sex" value="0" class="select-sex">
+                            女
+                        </label>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="text-align" >
+                <button type="button"  class="btn btn-info btn-large comfim-information" id="modal_before_submit">确认修改</button>
+            </div>
+        </form>
+</div>
+<div class="modal-backdrop hidden" style="position: fixed"></div>
+<script type="text/javascript" src="/js/user/edit.js"></script>

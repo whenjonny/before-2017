@@ -1,0 +1,70 @@
+<div id="edit_permission" class="modal " tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">编辑权限</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-row-seperated">
+                    <input type="hidden" class="form-control" name="pid" />
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">模块名称</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="display_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Controller</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="controller_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Action</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="action_name" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default blue save">保存</button>
+                <button type="button" class="btn cancel" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+    $("#edit_permission .cancel").click(function(){
+        $("#edit_permission form")[0].reset();
+    });
+
+    $("#edit_permission .save").click(function(){
+        $.post("/role/save_permission", $("#edit_permission form").serialize(), function(data){
+        });
+        
+        $("#edit_permission form")[0].reset();
+        $("#edit_permission").modal("hide");
+        table.submitFilter();
+    });
+
+    $('#permission_table').on('click', '.edit',function(){
+        var role_id = $(this).attr("data");
+        var tr = $(this).parent().parent();
+
+        var display_name = tr.find('.db_display_name').text();
+        var controller_name = tr.find('.db_controller_name').text();
+        var action_name = tr.find('.db_action_name').text();
+
+        $("#edit_permission input[name='pid']").val(role_id);
+        $("#edit_permission input[name='display_name']").val(display_name);
+        $("#edit_permission input[name='controller_name']").val(controller_name);
+        $("#edit_permission input[name='action_name']").val(action_name);
+    })
+});
+</script>

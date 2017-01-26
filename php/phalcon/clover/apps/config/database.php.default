@@ -1,0 +1,27 @@
+<?php
+return array(
+    'database'=> array(
+        'adapter'     => 'Mysql',
+        'host'        => 'localhost',
+        'username'    => 'root',
+        'password'    => 'XiaoNongNv52',
+        'dbname'      => 'psgod_new9',
+    ),
+    'database_log' => array(
+        'adapter'     => 'Mysql',
+        'host'        => 'localhost',
+        'username'    => 'root',
+        'password'    => 'XiaoNongNv52',
+        'dbname'      => 'psgod_log',
+    ),
+    'beanstalkd' => array(
+        'host'  => '127.0.0.1',
+        'port'  => '11300'
+    ),
+    'rabbit'    => array(
+        'host'  => '127.0.0.1',
+        'port'  => '',
+        'username'  => '',
+        'password'  => ''
+    )
+);

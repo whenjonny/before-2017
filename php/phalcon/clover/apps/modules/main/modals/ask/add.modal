@@ -1,0 +1,110 @@
+<link rel="stylesheet" type="text/css" href="/tapmodo/css/jquery.Jcrop.css">
+
+<div class="modal hidden" id="add_ask_modal" style="min-width: 760px; display: block; position: fixed;" aria-hidden="false">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3>上传图片</h3>
+		<div class="text-right">
+			<a href="#" class="upload-border crop" data="3/4">
+				<i class="rectangle"></i>
+				<span class="proportion" >3:4</span>
+			</a>
+			<a href="#" class="upload-border crop" data="4/3">
+				<i class="rectangle1"></i>
+				<span class="proportion">4:3</span>
+			</a>
+			<a href="#" class="upload-border crop" data="1">
+				<i class="rectangle2"></i>
+				<span class="proportion margin-right">1:1</span>
+			</a>
+			<a href="#" class="upload-border crop color-class" data="0">
+				<span class="proportion master-margin">原图</span>
+			</a>
+		</div>
+	</div>
+	<div class="modal-body">
+		<div class="upload-photo">
+			<div  class="photo-width display-photo" >
+				<div id="ask_modal_labelboard" class="labelboard" >
+                    <div id="ask_modal_container" style="position: absolute;width:300px;top:50%;left:50%;margin-left:-150px;">
+                        <img id="ask_modal_preview" class="img-display">
+                        <img id="ask_modal_label" class="label-display">
+                    </div>
+					<div class="fileQueue-display" id="fileQueue"></div>
+				</div>
+			</div>	   
+		</div>
+		<div class="upload-right">
+			<div id="step-one" class="upload-step upload-active">
+				<div class="font-ones">第一步:上传图片</div>
+				<div class="upload-button">
+					<input type="file" id="ask_uploadify" value="上传图片" >
+				</div>
+			</div>
+			<div id="step-two" class="upload-step">
+			<div class="font-ones">第二步:裁剪图片</div>
+				<div class="upload-button" >
+					<button class="btn btn-inverse color-gray"  id="ask_modal_crop">确定截图</button>
+				</div>
+			</div>
+			<div id="step-three" class="upload-step">
+				<div class="font-ones">第三步:添加标签</div>
+				<div class="upload-button">
+					<div class="remind-load">点击图片添加标签</div>
+					<div class="remind-load remind-margin">告诉大神你要的效果</div>
+				</div>
+			</div>
+			<div id="step-four" class="upload-step">
+				<div class="font-ones">第四步:点击完成</div>
+				<div class="upload-button">
+					<button class="btn btn-inverse color-gray" id="ask_modal_save">完成</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-backdrop hidden"></div>
+
+<div class="modal hidden" id="add_reply_modal" style="min-width: 760px; display: block; position: fixed;" aria-hidden="false">
+	<div class="modal-header">
+		<button type="button" class="close" aria-hidden="true">×</button>
+		<h3>上传图片</h3>
+	</div>
+	<div class="modal-body">
+		<div class="upload-photo">
+			<div  class="photo-width display-photo" >
+                <div id="reply_modal_labelboard" class="labelboard" >
+                    <div id="reply_modal_container" style="position: absolute;width:300px;top:50%;left:50%;margin-left:-150px;">
+                        <img id="reply_modal_label" class="label-display">
+                    </div>
+					<div class="fileQueue-display" id="fileQueue"></div>
+				</div>
+			</div>	   
+		</div>
+		<div class="upload-right">
+			<div id="reply-step-one" class="upload-step upload-active">
+                <div class="font-ones">第一步:上传图片</div>
+                <div class="upload-button">
+                    <input type="file" id="reply_uploadify" value="上传图片" >
+                </div>
+            </div>
+			<div id="reply-step-two" class="upload-step">
+                <div class="font-ones">第二步:添加标签</div>
+                <div class="upload-button">
+                    <div class="remind-load remind-padding">点击图片添加标签</div>
+                    <div class="remind-load remind-margin">写上你想说的话</div>
+                    <button class="btn btn-inverse add-ask-btn" id="reply_modal_save">完成</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="modal-backdrop hidden" ></div>
+
+
+<script type="text/javascript" src="/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="/tapmodo/js/jquery.Jcrop.js"></script>
+<script type="text/javascript" src="/jqdrag/jquery-drag.js"></script>
+<script type="text/javascript" src="/theme/assets/scripts/common.js"></script>
+<script type="text/javascript" src="/js/ask/add.js"></script>
+<script type="text/javascript" src="/js/reply/add.js"></script>

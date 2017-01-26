@@ -1,0 +1,15 @@
+1.  Com 连接
+		com c = new com("");//  这里根据设备管理器中com的接口来设定。		
+		c.sendMessage("1");
+2.  examples.ReadMessages
+		ReadMessages msg = new ReadMessages();
+		List list = msg.getMessage();
+		//System.out.println(list.toString());
+		for (int i = 0; i < list.size(); i++)
+		{
+			CIncomingMessage _msg = (CIncomingMessage) list.get(i);
+			//System.out.println(_msg);
+            System.out.println("发信人："  + _msg.getOriginator() +  " 短信内容:"   
+                   + _msg.getText());
+            //System.out.println();
+		}

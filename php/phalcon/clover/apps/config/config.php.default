@@ -1,0 +1,41 @@
+<?php
+/**
+ * initialize
+ */
+include __DIR__ . DIRECTORY_SEPARATOR . "constants.php";
+
+return new \Phalcon\Config(array(
+    'application' => array(
+        'crypt_key'      => '#1d$=dp?.akxx87?342j1V$',
+        'controllersDir' => APPS_DIR . 'controllers' . __DS__,
+        'modelsDir'      => APPS_DIR . 'models' . __DS__,
+        'viewsDir'       => APPS_DIR . 'views' . __DS__,
+        'pluginsDir'     => APPS_DIR . 'plugins' . __DS__,
+        'libraryDir'     => APPS_DIR . 'library' . __DS__,
+        'tmpDir'         => APPS_DIR . 'tmp' . __DS__,
+        'cacheDir'       => APPS_DIR . 'tmp' . __DS__ . 'cache' . __DS__ ,
+        'logDir'         => APPS_DIR . 'tmp' . __DS__ . 'logs' . __DS__ ,
+        'baseUri'        => '/',
+    ),
+    'txsdk' => array(
+        'appid'      => '100645734',
+        'appkey'     => '4c721e5ac32aa6062744d4fe64db01b4',
+        'server_name'=> DEV ? '119.147.19.43' : 'openapi.tencentyun.com', //根据是否开发环境选择 api 服务器
+    ),
+    'qiniu' => array(
+        'ak'    => 'eifvG4u-0Wp9KZgsev_9MyBiBRXHcOFaeSOXJ19f',
+        'sk'    => 'xDdcSRN2s0hGw3djcBKnrOMCHN8jWEQgjBCxbisr',
+        'domain'=> '7u2spr.com1.z0.glb.clouddn.com',
+        'bucket'=> 'pstest',
+    ),
+    'youpai' => array(
+        'sd'    => '123'
+    ),
+    'host' => array(
+        'android' => 'android.loiter.us',  // Android 地址
+        'admin'   => 'admin.loiter.us',      // 运营后台地址
+        'ios'     => 'ios.ps.com',      // iOS API 地址
+        'pc'      => 'pc.loiter.us',
+        'mobile'  => 'mobile.loiter.us'
+    ) 
+));

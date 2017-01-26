@@ -1,0 +1,55 @@
+<div id="add_permission" class="modal " tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">创建权限</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-row-seperated">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">模块名称</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="display_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Controller</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="controller_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Action</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="action_name" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn blue save">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+    $("#add_permission .cancel").click(function(){
+        $("#add_permission form")[0].reset();
+    });
+
+    $("#add_permission .save").click(function(){
+        $.post("/role/save_permission", $("#add_permission form").serialize(), function(data){
+        });
+        
+        $("#add_permission form")[0].reset();
+        $("#add_permission").modal("hide");
+        table.submitFilter();
+    });
+});
+</script>

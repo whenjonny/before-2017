@@ -1,0 +1,103 @@
+<div id="set_previlege_modal" class="modal " tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">权限设置</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-row-seperated">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">角色名称</label>
+                            <div class="col-md-9">
+                                <input type="hidden" name="role_id" />
+                                <input type="text" class="form-control" readonly name="role_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 ">
+                                <ul class="permission_list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn blue save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+    $('#role_table').on('click','.set_previlege',function(){
+        var current_modal = $('#set_previlege_modal');
+        var current_row = $(this).parents('tr');
+        var role_id = current_row.find('.db_id').text();
+        var display_name = current_row.find('.db_display_name').text();
+
+        current_modal.find('input[name="role_id"]').val(role_id);
+        current_modal.find('input[name="role_name"]').val(display_name);
+
+        $.post('/role/list_permissions',function(result){
+            result = JSON.parse(result);
+            var per_ul = $('.permission_list');
+            per_ul.empty();
+
+            var permission_list = result.data;
+            if( !permission_list.length ){
+                alert('获取权限列表失败！');
+                return;
+            }
+
+            var permission_list_length = permission_list.length;
+            for( var i=0; i<permission_list_length; i++){
+                var crnt_item = permission_list[i];
+
+                var per_item = $('<li>').addClass( 'permission_item' );
+                var per_label = $('<label>').text( crnt_item['display_name'] );
+                var per_checkbox = $('<input>').attr({
+                        'type' : 'checkbox',
+                        'name' : 'permission_id[]',
+                        'value': crnt_item['id']
+                    })
+                    .prependTo( per_label );
+                per_item.append( per_label );
+                per_ul.append( per_item );
+            }
+        });
+
+        $.post('/role/get_permissions_by_role_id',{'role_id':role_id},function(result){
+            var pids = result.data.split(',');
+            var per_box = $('input[name="permission_id[]"]');
+
+            for(var pid in pids){
+                per_box.filter('[value="'+pids[pid]+'"]').attr({'checked':'checked'});
+            }
+        });
+
+        $('#set_previlege_modal').modal('show');
+    });
+
+    $('#set_previlege_modal').on('click', '.save', function(){
+        $.post("/role/save_previlege", $("#set_previlege_modal form").serialize(), function(result){
+            if(result.data){
+                toastr['success']("操作成功");
+
+                $("#set_previlege_modal form")[0].reset();
+                $("#set_previlege_modal").modal("hide");
+                table.submitFilter();
+            }
+        });
+        
+    })
+    .on('click','.cancel', function(){
+        $("#set_previlege_modal form")[0].reset();
+    });
+
+
+});
+</script>

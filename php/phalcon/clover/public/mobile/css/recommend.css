@@ -1,0 +1,123 @@
+.Recommendhead {
+
+}
+.IntroductionApp {
+  margin-top: 60px;
+  text-align: center;
+}
+.appLogo {
+  display: inline-block;
+}
+.AppDetails {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+.LogoName {
+  color: #545454;
+  font-weight: bold;
+  font-size: 18px;
+}
+.appLogo img {
+  width: 80px;
+  height: 80px;
+}
+.StarGrade {
+margin-top: 1px;
+}
+.Star {
+  display: inline-block;
+}
+.Star img {
+  width: 60px;
+  height: 11px;
+}
+.Grade {
+  color: #8F8F8E;
+  font-size: 11px;
+  display: inline-block;
+  margin-left: -6px;
+}
+.brief {
+    margin-top: 1px;
+  color: #AFAFAE;
+  font-size: 15px;
+}
+.RecommendMain {
+  text-align: center;
+    margin-top: 30px;
+}
+.IosDownload {
+  display: inline-block;
+    margin-right: 18px;
+}
+.AndroidDownload {
+  display: inline-block;
+}
+.AndroidDownload img,.IosDownload img {
+  width: 105px;
+  height: 35px;
+}
+.RecommendApp {
+  text-align: center;
+    margin-top: 20px;
+}
+.RecommendApp img {
+  width: 210;
+  height: 300px;
+}
+.remindShade {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.arrow,.remind1,.remind2 {
+    position: absolute;
+  z-index: 100;
+}
+.remind1 img  {
+  width: 141px;
+  height: 25px;
+}
+ .remind2 img {
+  width: 240px;
+  height: 24px;
+ }
+ .arrow img {
+  width: 90px;
+  height: 90px;
+ }
+.arrow {
+  position: absolute;
+  z-index: 100;
+    right: 10px;
+  top: 10px;
+}
+.remind1 {
+  top: 129px;
+  left: 23px;
+}
+
+.remind2 {
+  top: 170px;
+  left: 23px;
+}
+.remindBlack {
+  background: black;
+   filter:alpha(opacity=50);       /* IE */
+   -moz-opacity:0.5;              /* 老版Mozilla */
+   -khtml-opacity:0.5;
+  opacity:0.5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+
+}
+.remindNone {
+  display: none;
+}
